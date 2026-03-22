@@ -6,7 +6,6 @@ from sqlalchemy.orm import sessionmaker
 from app.database import Base, get_db
 from app.main import app
 
-# In-memory SQLite для тестов
 engine = create_engine(
     "sqlite://",
     connect_args={"check_same_thread": False},
@@ -45,7 +44,6 @@ def client(db):
     app.dependency_overrides.clear()
 
 
-# ─── Тестовые данные ─────────────────────────────────
 
 USER_DATA = {
     "username": "test@gmail.com",
@@ -73,7 +71,6 @@ SHANYRAK_DATA = {
 }
 
 
-# ─── Хелперы ─────────────────────────────────────────
 
 def register_user(client, data=None):
     data = data or USER_DATA

@@ -71,7 +71,6 @@ class ShanyrakCreateResponse(BaseModel):
     id: int
 
 
-# ─── Comments ────────────────────────────────────────
 
 class CommentCreate(BaseModel):
     content: str

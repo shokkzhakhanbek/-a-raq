@@ -36,8 +36,7 @@ def _get_comment_or_404(comment_id: int, shanyrak_id: int, db: Session) -> Comme
         )
     return comment
 
-
-# Таск 9: Добавление комментария
+ы
 @router.post("/")
 def create_comment(
     shanyrak_id: int,
@@ -56,7 +55,6 @@ def create_comment(
     return {"message": "Comment added successfully"}
 
 
-# Таск 10: Получение списка комментариев
 @router.get("/", response_model=CommentsListResponse)
 def get_comments(shanyrak_id: int, db: Session = Depends(get_db)):
     _get_shanyrak_or_404(shanyrak_id, db)
@@ -69,7 +67,6 @@ def get_comments(shanyrak_id: int, db: Session = Depends(get_db)):
     return CommentsListResponse(comments=comments)
 
 
-# Таск 11: Изменение комментария
 @router.patch("/{comment_id}")
 def update_comment(
     shanyrak_id: int,
@@ -89,7 +86,6 @@ def update_comment(
     return {"message": "Comment updated successfully"}
 
 
-# Таск 12: Удаление комментария
 @router.delete("/{comment_id}")
 def delete_comment(
     shanyrak_id: int,

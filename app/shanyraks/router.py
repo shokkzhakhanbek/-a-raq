@@ -15,7 +15,6 @@ from app.auth.dependencies import get_current_user
 router = APIRouter(prefix="/shanyraks", tags=["shanyraks"])
 
 
-# Таск 5: Создание объявления
 @router.post("/", response_model=ShanyrakCreateResponse)
 def create_shanyrak(
     data: ShanyrakCreate,
@@ -29,7 +28,6 @@ def create_shanyrak(
     return ShanyrakCreateResponse(id=shanyrak.id)
 
 
-# Таск 6 + 13: Получение объявления (с total_comments)
 @router.get("/{id}", response_model=ShanyrakResponse)
 def get_shanyrak(id: int, db: Session = Depends(get_db)):
     shanyrak = db.query(Shanyrak).filter(Shanyrak.id == id).first()
@@ -48,7 +46,6 @@ def get_shanyrak(id: int, db: Session = Depends(get_db)):
     return response
 
 
-# Таск 7: Изменение объявления
 @router.patch("/{id}")
 def update_shanyrak(
     id: int,
@@ -74,7 +71,6 @@ def update_shanyrak(
     return {"message": "Shanyrak updated successfully"}
 
 
-# Таск 8: Удаление объявления
 @router.delete("/{id}")
 def delete_shanyrak(
     id: int,
